@@ -135,7 +135,110 @@ nav a:hover, nav a.active {
   background: var(--rotary-gold-dark);
   color: #ffffff;
 }
-@media (max-width: 880px) { nav ul { display: none; } }
+/* ---------- EVENT ANNOUNCEMENT NOTIFICATION BANNER ---------- */
+.event-notification-banner {
+  background: linear-gradient(90deg, #0d2e63 0%, #17458f 60%, #0d2e63 100%);
+  color: #ffffff;
+  border-bottom: 2px solid var(--rotary-gold);
+  padding: 12px 24px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+  position: relative;
+  z-index: 90;
+}
+
+.event-notification-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.notification-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(247, 168, 27, 0.2);
+  border: 1px solid var(--rotary-gold);
+  color: var(--rotary-gold);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.badge-dot-live {
+  width: 8px;
+  height: 8px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  animation: livePulse 1.8s infinite;
+}
+
+@keyframes livePulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+.notification-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14.5px;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+.event-flag-icon {
+  font-size: 18px;
+}
+
+.notification-title {
+  font-weight: 700;
+  font-size: 15px;
+  color: #ffffff;
+}
+
+.notification-divider {
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: bold;
+}
+
+.notification-detail {
+  color: var(--cream-soft);
+  font-size: 14px;
+}
+
+.notification-detail strong {
+  color: #ffffff;
+}
+
+.notification-link {
+  color: var(--rotary-gold);
+  font-weight: 700;
+  font-size: 13.5px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.notification-link:hover {
+  background: var(--rotary-gold);
+  color: var(--rotary-blue-dark);
+}
 
 /* ---------- HERO (HOMEPAGE) ---------- */
 .hero {
