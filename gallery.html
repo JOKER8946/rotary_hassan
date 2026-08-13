@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo Gallery — Rotary Club Hassan</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="wf-note">WIREFRAME — <strong>Photo Gallery &amp; Media Highlights</strong> (Team Aikyam 2026–27)</div>
+
+<!-- HEADER -->
+<header>
+  <div class="nav-wrap">
+    <a href="index.html" class="logo">
+      <img class="logo-wheel" src="assets/rotary-logo.png" alt="Rotary">
+      <img class="logo-team" src="assets/team-aikyam-emblem.jpeg" alt="Team Aikyam">
+      Rotary Club Hassan
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="members.html">New Members</a></li>
+        <li><a href="work.html">Our Work</a></li>
+        <li><a href="events.html">Programme</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="about.html">About &amp; Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn-join" href="about.html#involved">Join / Donate</a>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-eyebrow">Visual Memories · Rotary Club Hassan</div>
+    <h1>Photo Gallery &amp; Event Media</h1>
+    <p>Visual records of Team Aikyam Installation Ceremony, health camps, leadership moments, and community service projects in Hassan district.</p>
+  </div>
+</section>
+
+<!-- GALLERY CONTENT -->
+<section class="block">
+  
+  <!-- CATEGORY FILTER TABS -->
+  <div class="filter-bar">
+    <div class="filter-tabs" id="galleryFilterTabs">
+      <button class="filter-btn active" data-category="all">All Photos</button>
+      <button class="filter-btn" data-category="installation">Installation Ceremony</button>
+      <button class="filter-btn" data-category="leadership">Leadership &amp; Guests</button>
+      <button class="filter-btn" data-category="members">New Members</button>
+      <button class="filter-btn" data-category="theme">Rotary Theme &amp; Emblem</button>
+    </div>
+  </div>
+
+  <div class="gallery-grid" id="galleryGrid">
+    
+    <div class="photo-block" data-category="installation" style="cursor:pointer;" tabindex="0" role="button" aria-label="Ann's Team & Office Bearers 2026-27">
+      <img src="assets/hero/anns_team_group.jpg" alt="Ann's Team &amp; Office Bearers 2026-27">
+    </div>
+
+    <div class="photo-block" data-category="installation" style="cursor:pointer;" tabindex="0" role="button" aria-label="President Dr. Geetha Kiran A & Family">
+      <img src="assets/hero/president_family.jpg" alt="President Dr. Geetha Kiran A &amp; Family">
+    </div>
+
+    <div class="photo-block" data-category="leadership" style="cursor:pointer;" tabindex="0" role="button" aria-label="Chief Guest Rtn. H. R. Keshav">
+      <img src="assets/leadership/hr_keshav.jpg" alt="Chief Guest Rtn. H. R. Keshav">
+    </div>
+
+    <div class="photo-block" data-category="leadership" style="cursor:pointer;" tabindex="0" role="button" aria-label="Zonal Lieutenant Rtn. PHF Mahesh D R">
+      <img src="assets/leadership/mahesh_dr.jpg" alt="Zonal Lieutenant Rtn. PHF Mahesh D R">
+    </div>
+
+    <div class="photo-block" data-category="leadership" style="cursor:pointer;" tabindex="0" role="button" aria-label="Assistant Governor Rtn. A Manjunath">
+      <img src="assets/leadership/a_manjunath.png" alt="Assistant Governor Rtn. A Manjunath">
+    </div>
+
+    <div class="photo-block" data-category="members" style="cursor:pointer;" tabindex="0" role="button" aria-label="Team Aikyam Leadership & Members">
+      <img src="assets/members/mohana_lakshmi.jpg" alt="Team Aikyam Leadership &amp; Members">
+    </div>
+
+    <div class="photo-block" data-category="members" style="cursor:pointer;" tabindex="0" role="button" aria-label="Rtn. Asha Jayaram">
+      <img src="assets/members/asha_jayaram.jpg" alt="Rtn. Asha Jayaram">
+    </div>
+
+    <div class="photo-block" data-category="members" style="cursor:pointer;" tabindex="0" role="button" aria-label="Rtn. Er. Muralidhara H R">
+      <img src="assets/members/muralidhara_hr.jpg" alt="Rtn. Er. Muralidhara H R">
+    </div>
+
+    <div class="photo-block" data-category="members" style="cursor:pointer;" tabindex="0" role="button" aria-label="Rtn. Dr. Nancy Paul">
+      <img src="assets/members/nancy_paul.jpg" alt="Rtn. Dr. Nancy Paul">
+    </div>
+
+    <div class="photo-block" data-category="theme" style="cursor:pointer;" tabindex="0" role="button" aria-label="Create Lasting Impact Theme">
+      <img src="assets/create-lasting-impact.png" alt="Rotary Theme - Create Lasting Impact">
+    </div>
+
+  </div>
+</section>
+
+<!-- LIGHTBOX MODAL -->
+<div class="modal-backdrop" id="lightboxModal" role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1">
+  <div class="modal-card" style="max-width:800px; height:auto; max-height:90vh; padding:0;">
+    <div class="modal-header-bar">
+      <span style="font-weight:700; color:var(--rotary-blue-dark);" id="lightboxCaption">Photo Preview</span>
+      <button class="modal-close-btn" id="lightboxCloseBtn" aria-label="Close modal">&times;</button>
+    </div>
+    <div style="padding:20px; text-align:center; background:#0f172a; display:flex; align-items:center; justify-content:center;">
+      <img id="lightboxImage" src="" alt="" style="max-width:100%; max-height:70vh; border-radius:8px; object-fit:contain;">
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="logo" style="color:var(--cream-deep); margin-bottom:14px;">
+        <img class="logo-wheel" src="assets/rotary-logo.png" alt="Rotary">
+        <img class="logo-team" src="assets/team-aikyam-emblem.jpeg" alt="Team Aikyam">
+        Rotary Club Hassan
+      </a>
+      <p style="font-size:13.5px; color:#a39d8c; max-width:32ch;">Club No. 15716 · RI District 3182, Zone 9. Team Aikyam — Together · Serve · Inspire · Transform.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="index.html">Home Page</a></li>
+        <li><a href="members.html">New Members</a></li>
+        <li><a href="work.html">Our Work</a></li>
+        <li><a href="events.html">Programme</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Get Involved</h4>
+      <ul>
+        <li><a href="about.html#involved">Join Us</a></li>
+        <li><a href="about.html#involved">Donate</a></li>
+        <li><a href="about.html#involved">Volunteer</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Club House &amp; Contact</h4>
+      <p style="font-size:13.5px; color:#cbd5e1; line-height:1.6;">
+        Rotary Club House, Near B.M. Road, Hassan, Karnataka.<br>
+        <strong>Meetings:</strong> Every Thursday, 7:30 PM.<br>
+        <strong>Email:</strong> info@rotaryhassan.org
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    Rotary Club Hassan · Team Aikyam 2026–27 · Service Above Self
+  </div>
+</footer>
+
+<script>
+  // Filter Functionality
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const photoBlocks = document.querySelectorAll('#galleryGrid .photo-block');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const category = btn.dataset.category;
+      photoBlocks.forEach(block => {
+        if (category === 'all' || block.dataset.category === category) {
+          block.style.display = 'flex';
+        } else {
+          block.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Lightbox Modal
+  const lightboxModal = document.getElementById('lightboxModal');
+  const lightboxCloseBtn = document.getElementById('lightboxCloseBtn');
+  const lightboxImage = document.getElementById('lightboxImage');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+
+  photoBlocks.forEach(block => {
+    block.addEventListener('click', () => {
+      const img = block.querySelector('img');
+      if (img) {
+        lightboxImage.src = img.src;
+        lightboxCaption.textContent = img.alt || 'Photo View';
+        lightboxModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  function closeLightbox() {
+    lightboxModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  lightboxCloseBtn.addEventListener('click', closeLightbox);
+  lightboxModal.addEventListener('click', (e) => {
+    if (e.target === lightboxModal) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightboxModal.classList.contains('active')) closeLightbox();
+  });
+</script>
+
+</body>
+</html>

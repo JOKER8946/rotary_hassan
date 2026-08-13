@@ -3,453 +3,317 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rotary Club of Hassan — Homepage Wireframe</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap');
-
-  :root {
-    --rotary-blue: #17458f;
-    --rotary-blue-dark: #0d2e63;
-    --rotary-gold: #f7a81b;
-    --rotary-gold-dark: #d4890a;
-    --cream: #ffffff;
-    --cream-deep: #f8fafc;
-    --ink: #0f172a;
-    --ink-soft: #475569;
-    --line: #e2e8f0;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'Work Sans', sans-serif;
-    background: #ffffff;
-    color: var(--ink);
-    line-height: 1.5;
-  }
-
-  h1, h2, h3, .display { font-family: 'Fraunces', serif; }
-
-  /* ---------- WIREFRAME NOTE BANNER ---------- */
-  .wf-note {
-    background: var(--ink);
-    color: #ffffff;
-    text-align: center;
-    padding: 10px 16px;
-    font-size: 13px;
-    letter-spacing: 0.02em;
-  }
-  .wf-note strong { color: var(--rotary-gold); }
-
-  /* ---------- PLACEHOLDER PHOTO BLOCKS ---------- */
-  .photo-block {
-    background:
-      repeating-linear-gradient(45deg, #f1f5f9 0, #f1f5f9 2px, #f8fafc 2px, #f8fafc 14px);
-    border: 1px solid var(--line);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--rotary-blue-dark);
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 600;
-    font-size: 13px;
-    text-align: center;
-    padding: 0;
-    border-radius: 6px;
-    overflow: hidden;
-    position: relative;
-  }
-  .photo-block img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-    transition: transform 0.3s ease;
-  }
-  .work-card:hover .photo-block img {
-    transform: scale(1.04);
-  }
-
-  /* ---------- HEADER ---------- */
-  header {
-    background: #ffffff;
-    border-bottom: 1px solid var(--line);
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
-  }
-  .nav-wrap {
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 18px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'Fraunces', serif;
-    font-weight: 700;
-    font-size: 20px;
-    color: var(--rotary-blue-dark);
-  }
-  .logo-wheel {
-    height: 64px;
-    width: auto;
-    flex-shrink: 0;
-  }
-  .logo-team {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 28px;
-  }
-  nav a {
-    text-decoration: none;
-    color: var(--ink);
-    font-size: 15px;
-    font-weight: 500;
-    transition: color 0.2s ease;
-  }
-  nav a:hover {
-    color: var(--rotary-blue);
-  }
-  .btn-join {
-    background: var(--rotary-gold);
-    color: var(--ink);
-    padding: 10px 22px;
-    border-radius: 30px;
-    font-weight: 600;
-    font-size: 14px;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: background 0.2s ease, transform 0.2s ease;
-  }
-  .btn-join:hover {
-    background: var(--rotary-gold-dark);
-    color: #ffffff;
-  }
-  @media (max-width: 860px) { nav ul { display: none; } }
-
-  /* ---------- HERO ---------- */
-  .hero {
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 60px 24px 80px;
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 50px;
-    align-items: center;
-  }
-  .hero-eyebrow {
-    color: var(--rotary-gold-dark);
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-size: 12.5px;
-    margin-bottom: 18px;
-  }
-  .hero h1 {
-    font-size: clamp(36px, 5vw, 56px);
-    line-height: 1.05;
-    color: var(--rotary-blue-dark);
-    font-weight: 600;
-  }
-  .hero h1 em { font-style: italic; color: var(--rotary-gold-dark); }
-  .hero p {
-    margin-top: 22px;
-    font-size: 17px;
-    color: var(--ink-soft);
-    max-width: 46ch;
-  }
-  .hero-ctas { margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--rotary-blue);
-    color: #fff;
-    padding: 14px 26px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 15px;
-    transition: background 0.2s ease, transform 0.2s ease;
-  }
-  .btn-primary:hover {
-    background: var(--rotary-blue-dark);
-  }
-  .btn-secondary {
-    border: 2px solid var(--rotary-blue);
-    color: var(--rotary-blue);
-    padding: 12px 26px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 15px;
-    transition: background 0.2s ease, color 0.2s ease;
-  }
-  .btn-secondary:hover {
-    background: var(--rotary-blue);
-    color: #ffffff;
-  }
-  .hero-photo { aspect-ratio: 4/5; }
-
-  /* stat strip under hero */
-  .stat-strip {
-    background: var(--rotary-blue-dark);
-    color: #ffffff;
-  }
-  .stat-strip-inner {
-    max-width: 1180px; margin: 0 auto; padding: 34px 24px;
-    display: grid; grid-template-columns: repeat(4,1fr); gap: 20px;
-    text-align: center;
-  }
-  .stat-strip .num {
-    font-family: 'Fraunces', serif; font-size: 34px; color: var(--rotary-gold);
-  }
-  .stat-strip .label { font-size: 13px; opacity: 0.9; margin-top: 4px; }
-  @media (max-width: 700px) { .stat-strip-inner { grid-template-columns: repeat(2,1fr); } }
-
-  /* ---------- SECTION SHELL ---------- */
-  section.block { max-width: 1180px; margin: 0 auto; padding: 90px 24px; }
-  .section-head { max-width: 640px; margin-bottom: 46px; }
-  .section-eyebrow {
-    color: var(--rotary-gold-dark); font-weight: 700; letter-spacing: 0.1em;
-    text-transform: uppercase; font-size: 12px; margin-bottom: 10px;
-  }
-  .section-head h2 { font-size: clamp(28px,3.4vw,38px); color: var(--rotary-blue-dark); font-weight: 600; }
-  .section-head p { margin-top: 14px; color: var(--ink-soft); font-size: 16px; }
-
-  /* ---------- OUR WORK GRID ---------- */
-  .work-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px;
-  }
-  .work-card {
-    background: #ffffff; border: 1px solid var(--line); border-radius: 10px; overflow: hidden;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  }
-  .work-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 14px 28px rgba(23,69,143,0.12);
-    border-color: var(--rotary-blue);
-  }
-  .work-card:focus-visible {
-    outline: 2px solid var(--rotary-blue);
-    outline-offset: 2px;
-  }
-  .work-card .photo-block { height: 170px; border-radius: 0; border-left:none; border-right:none; border-top:none; }
-  .work-card-body { padding: 20px 22px 24px; display: flex; flex-direction: column; height: calc(100% - 170px); }
-  .work-card h3 { font-size: 18px; color: var(--rotary-blue-dark); font-weight: 600; margin-bottom: 8px; }
-  .work-card p { font-size: 14.5px; color: var(--ink-soft); flex: 1; }
-  .work-tag {
-    display: inline-block; background: #edf2f7; color: var(--rotary-blue-dark);
-    font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
-    padding: 4px 10px; border-radius: 20px; margin-bottom: 12px; align-self: flex-start;
-  }
-  .card-footer-link {
-    display: flex; align-items: center; gap: 6px; margin-top: 14px;
-    font-size: 13px; font-weight: 700; color: var(--rotary-blue);
-    transition: color 0.2s ease, gap 0.2s ease;
-  }
-  .work-card:hover .card-footer-link {
-    color: var(--rotary-blue-dark); gap: 10px;
-  }
-  @media (max-width: 900px) { .work-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 620px) { .work-grid { grid-template-columns: 1fr; } }
-
-  /* ---------- MODAL STYLES (3/4 SCREEN POPUP) ---------- */
-  .modal-backdrop {
-    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    background: rgba(15, 23, 42, 0.65);
-    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-    z-index: 9999; display: flex; align-items: center; justify-content: center;
-    padding: 24px; opacity: 0; visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-  }
-  .modal-backdrop.active { opacity: 1; visibility: visible; }
-  .modal-card {
-    background: #ffffff; width: 75vw; max-width: 980px; height: 75vh; max-height: 750px;
-    border-radius: 16px; box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.3);
-    display: flex; flex-direction: column; overflow: hidden;
-    transform: scale(0.92) translateY(20px);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative; border: 1px solid var(--line);
-  }
-  .modal-backdrop.active .modal-card { transform: scale(1) translateY(0); }
-  .modal-header-bar {
-    background: #f8fafc; padding: 18px 26px; border-bottom: 1px solid var(--line);
-    display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
-  }
-  .modal-header-info { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-  .modal-close-btn {
-    background: #e2e8f0; border: none; width: 34px; height: 34px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center; font-size: 22px;
-    line-height: 1; cursor: pointer; color: var(--ink); transition: background 0.2s ease, transform 0.2s ease;
-  }
-  .modal-close-btn:hover { background: var(--rotary-gold); color: #0f172a; transform: rotate(90deg); }
-  .modal-scroll-content { padding: 28px; overflow-y: auto; flex: 1; }
-  .modal-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 28px; }
-  @media (max-width: 820px) {
-    .modal-card { width: 92vw; height: 85vh; }
-    .modal-grid { grid-template-columns: 1fr; }
-  }
-  .modal-title {
-    font-family: 'Fraunces', serif; font-size: 26px; color: var(--rotary-blue-dark);
-    font-weight: 700; line-height: 1.25; margin-bottom: 10px;
-  }
-  .modal-date-badge {
-    display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px;
-    font-weight: 600; color: var(--rotary-gold-dark); background: rgba(247, 168, 27, 0.12);
-    padding: 4px 12px; border-radius: 20px; margin-bottom: 16px;
-  }
-  .modal-description { font-size: 15px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 20px; }
-  .modal-section-title {
-    font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.08em;
-    font-weight: 700; color: var(--rotary-blue); margin-bottom: 10px;
-  }
-  .modal-outcomes-list { list-style: none; margin-bottom: 20px; }
-  .modal-outcomes-list li {
-    font-size: 14px; color: var(--ink); padding: 8px 12px; background: #f8fafc;
-    border-left: 3px solid var(--rotary-gold); border-radius: 4px; margin-bottom: 8px;
-    display: flex; align-items: flex-start; gap: 8px; border: 1px solid #edf2f7; border-left-width: 3px;
-  }
-  .modal-partner-box {
-    background: #f1f5f9; padding: 12px 16px; border-radius: 8px;
-    font-size: 13.5px; color: var(--ink-soft); border: 1px solid #e2e8f0;
-  }
-  .modal-partner-box strong { color: var(--rotary-blue-dark); }
-  .gallery-preview-container { display: flex; flex-direction: column; gap: 14px; }
-  .gallery-main-featured {
-    width: 100%; height: 210px; border-radius: 10px;
-    background: repeating-linear-gradient(45deg, #f1f5f9 0, #f1f5f9 2px, #f8fafc 2px, #f8fafc 14px);
-    border: 2px dashed var(--rotary-blue); display: flex; flex-direction: column;
-    align-items: center; justify-content: center; padding: 16px; text-align: center;
-    color: var(--rotary-blue-dark); transition: all 0.3s ease;
-  }
-  .gallery-main-featured .main-photo-title { font-weight: 700; font-size: 15px; margin-bottom: 4px; }
-  .gallery-main-featured .main-photo-desc { font-size: 12.5px; opacity: 0.85; }
-  .gallery-thumbs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-  .thumb-block {
-    aspect-ratio: 4/3; background: #f1f5f9; border: 1px dashed #cbd5e1;
-    border-radius: 6px; display: flex; align-items: center; justify-content: center;
-    font-size: 10.5px; font-weight: 600; text-align: center; padding: 4px;
-    color: var(--rotary-blue-dark); cursor: pointer; transition: all 0.2s ease;
-  }
-  .thumb-block:hover, .thumb-block.active {
-    background: var(--rotary-blue-dark); color: #ffffff; border-style: solid;
-  }
-
-  /* ---------- GET INVOLVED (3 paths) ---------- */
-  .involved { background: #f8fafc; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .involved-grid {
-    display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 10px;
-  }
-  .involved-card {
-    background: #ffffff; border-radius: 12px; padding: 30px 26px;
-    border: 1px solid var(--line); border-top: 4px solid var(--rotary-gold);
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
-  }
-  .involved-card.member { border-top-color: var(--rotary-blue); }
-  .involved-card.donor { border-top-color: var(--rotary-gold); }
-  .involved-card.public { border-top-color: #059669; }
-  .involved-card h3 { font-size: 19px; color: var(--rotary-blue-dark); margin-bottom: 10px; }
-  .involved-card p { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 18px; }
-  .involved-card a { font-weight: 700; color: var(--rotary-blue); text-decoration: none; font-size: 14px; }
-  @media (max-width: 860px) { .involved-grid { grid-template-columns: 1fr; } }
-
-  /* ---------- EVENTS ---------- */
-  .events-list { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--line); }
-  .event-row {
-    display: grid; grid-template-columns: 90px 1fr auto; gap: 24px; align-items: center;
-    padding: 22px 0; border-bottom: 1px solid var(--line);
-  }
-  .event-date {
-    background: var(--rotary-blue-dark); color: #ffffff; border-radius: 8px;
-    text-align: center; padding: 10px 6px; font-family: 'Fraunces', serif;
-  }
-  .event-date .d { font-size: 22px; font-weight: 700; }
-  .event-date .m { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
-  .event-row h4 { font-size: 16.5px; color: var(--rotary-blue-dark); margin-bottom: 4px; }
-  .event-row p { font-size: 13.5px; color: var(--ink-soft); }
-  .event-row .btn-secondary { padding: 8px 18px; font-size: 13px; }
-  @media (max-width: 620px) { .event-row { grid-template-columns: 60px 1fr; } .event-row .btn-secondary { display:none; } }
-
-  /* ---------- GALLERY ---------- */
-  .gallery-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 130px; gap: 14px;
-  }
-  .gallery-grid .photo-block:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-  .gallery-grid .photo-block:nth-child(6) { grid-column: span 2; }
-  @media (max-width: 700px) { .gallery-grid { grid-template-columns: repeat(2,1fr); } .gallery-grid .photo-block:nth-child(1){grid-column:span 2;grid-row:span 1;} }
-
-  /* ---------- TESTIMONIAL / VOICE ---------- */
-  .voice { background: var(--rotary-blue-dark); color: #ffffff; }
-  .voice-inner {
-    max-width: 780px; margin: 0 auto; padding: 90px 24px; text-align: center;
-  }
-  .voice-inner .photo-block {
-    width: 84px; height: 84px; border-radius: 50%; margin: 0 auto 26px;
-    border-color: var(--rotary-gold); font-size: 10px; background: #ffffff; color: var(--rotary-blue-dark);
-  }
-  .voice-inner blockquote {
-    font-family: 'Fraunces', serif; font-style: italic; font-size: clamp(20px,2.6vw,28px);
-    line-height: 1.4; font-weight: 500;
-  }
-  .voice-inner cite { display: block; margin-top: 20px; font-style: normal; color: var(--rotary-gold); font-size: 14px; font-weight: 600; }
-
-  /* ---------- FOOTER ---------- */
-  footer { background: #0f172a; color: #f8fafc; }
-  .footer-inner {
-    max-width: 1180px; margin: 0 auto; padding: 60px 24px 30px;
-    display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px;
-  }
-  footer h4 { color: var(--rotary-gold); font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
-  footer ul { list-style: none; }
-  footer li { margin-bottom: 9px; font-size: 14px; color: #cbd5e1; }
-  footer a { color: #cbd5e1; text-decoration: none; transition: color 0.2s ease; }
-  footer a:hover { color: #ffffff; }
-  .footer-bottom {
-    border-top: 1px solid #1e293b; text-align: center; padding: 20px; font-size: 12.5px; color: #94a3b8;
-  }
-  @media (max-width: 800px) { .footer-inner { grid-template-columns: 1fr 1fr; } }
-</style>
+<title>Rotary Club of Hassan — Team Aikyam 2026–27</title>
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<div class="wf-note">WIREFRAME — this is a <strong>layout &amp; structure mock</strong>, not final visuals. Dashed boxes = where real Rotary photos go once you shoot them.</div>
+<div class="wf-note">WIREFRAME — <strong>Rotary Club Hassan Official Portal</strong> (Team Aikyam 2026–27)</div>
 
 <!-- HEADER -->
 <header>
   <div class="nav-wrap">
-    <div class="logo">
+    <a href="index.html" class="logo">
       <img class="logo-wheel" src="assets/rotary-logo.png" alt="Rotary">
       <img class="logo-team" src="assets/team-aikyam-emblem.jpeg" alt="Team Aikyam">
       Rotary Club Hassan
-    </div>
+    </a>
     <nav>
       <ul>
-        <li><a href="#work">Our Work</a></li>
-        <li><a href="#members">New Members</a></li>
-        <li><a href="#leadership">Leadership</a></li>
-        <li><a href="#events">Programme</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#about">About &amp; Contact</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="members.html">New Members</a></li>
+        <li><a href="work.html">Our Work</a></li>
+        <li><a href="events.html">Programme</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About &amp; Contact</a></li>
       </ul>
     </nav>
-    <a class="btn-join" href="#involved">Join / Donate</a>
+    <a class="btn-join" href="about.html#involved">Join / Donate</a>
   </div>
 </header>
 
-<!-- HERO -->
+<!-- HORIZONTAL ROLLING BANNER (NEWLY JOINED MEMBERS) -->
+<section class="rolling-members-section" aria-label="Newly Joined Members Rolling Banner">
+  <div class="rolling-banner-container">
+    <div class="rolling-banner-badge">
+      <span class="badge-dot"></span>
+      <span class="badge-text-full">NEWLY JOINED MEMBERS</span>
+      <span class="badge-text-short">NEW MEMBERS</span>
+    </div>
+    <div class="rolling-banner-track-wrapper">
+      <div class="rolling-banner-track">
+        <!-- FIRST SET OF 12 MEMBERS -->
+        <div class="member-pill-card" data-member-id="1" tabindex="0" role="button" aria-label="Rtn. Asha Jayaram profile">
+          <img class="member-avatar" src="assets/members/asha_jayaram.jpg" alt="Rtn. Asha Jayaram">
+          <div class="member-pill-info">
+            <div class="member-pill-top">
+              <span class="member-pill-name">Rtn. Asha Jayaram</span>
+              <span class="member-pill-occupation">Retd. HOD &amp; Assoc. Prof (Chemistry)</span>
+            </div>
+            <span class="member-pill-brief">Academic leader with 30+ yrs in chemistry education, NSS &amp; institutional mentoring.</span>
+          </div>
+        </div>
+
+        <div class="member-pill-card" data-member-id="2" tabindex="0" role="button" aria-label="Rtn. Dhavala K C profile">
+          <img class="member-avatar" src="assets/members/dhavala_kc.jpg" alt="Rtn. Dhavala K C">
+          <div class="member-pill-info">
+            <div class="member-pill-top">
+              <span class="member-pill-name">Rtn. Dhavala K C</span>
+              <span class="member-pill-occupation">Info Science Engineer &amp; Artist</span>
+            </div>
+            <span class="member-pill-brief">Tech graduate &amp; creative entrepreneur specializing in traditional Tanjore art &amp; baking.</span>
+          </div>
+        </div>
+
+        <div class="member-pill-card" data-member-id="3" tabindex="0" role="button" aria-label="Rtn. Madhu Kumar profile">
+          <img class="member-avatar" src="assets/members/madhu_kumar.jpg" alt="Rtn. Madhu Kumar">
+          <div class="member-pill-info">
+            <div class="member-pill-top">
+              <span class="member-pill-name">Rtn. Madhu Kumar</span>
+              <span class="member-pill-occupation">Director, BharatOne Services</span>
+            </div>
+            <span class="member-pill-brief">Entrepreneur with 10+ yrs leading digital citizen services &amp; e-governance in Karnataka.</span>
+          </div>
+        </div>
+
+        <div class="member-pill-card" data-member-id="4" tabindex="0" role="button" aria-label="Rtn. Dr. Mohana Lakshmi J profile">
+          <img class="member-avatar" src="assets/members/mohana_lakshmi.jpg" alt="Rtn. Dr. Mohana Lakshmi J">
+          <div class="member-pill-info">
+            <div class="member-pill-top">
+              <span class="member-pill-name">Rtn. Dr. Mohana Lakshmi J</span>
+              <span class="member-pill-occupation">Assoc. Prof, MCE Hassan &amp; Startup COO</span>
+            </div>
+            <span class="member-pill-brief">COO of ME-RIISE Foundation advancing engineering innovation &amp; tech startup incubation.</span>
+          </div>
+        </div>
+
+        <div class="member-pill-card" data-member-id="5" tabindex="0" role="button" aria-label="Rtn. Er. Muralidhara H R profile">
+          <img class="member-avatar" src="assets/members/muralidhara_hr.jpg" alt="Rtn. Er. Muralidhara H R">
+          <div class="member-pill-info">
+            <div class="member-pill-top">
+              <span class="member-pill-name">Rtn. Er. Muralidhara H R</span>
+              <span class="member-pill-occupation">Executive Engineer, Yettinahole Project</span>
+            </div>
+            <span class="member-pill-brief">Balekundri Awardee civil engineer leading drinking water &amp; infrastructure projects.</span>
+          </div>
+        </div>
+
+        <div class="member-pill-card" data-member-id="6" tabindex="0" role="button" aria-label="Rtn. Dr. Nancy Paul profile">
+          <img class="member-avatar" src="assets/members/nancy_paul.jpg" alt="Rtn. Dr. Nancy Paul">
+          <div class="member-pill-info">
+            <div class="member-pill-top">
+              <span class="member-pill-name">Rtn. Dr. Nancy Paul</span>
+              <span class="member-pill-occupation">Consultant Gynaecologist &amp; Surgeon</span>
+            </div>
+            <span class="member-pill-brief">Asst. Professor at HIMS Hassan &amp; fertility specialist dedicated to women's healthcare.</span>
+          </div>
+        </div>
+
+        <div class="member-pill-card" data-member-id="7" tabindex="0" role="button" aria-label="Rtn. Dr. Nanditha B R profile">
+          <img class="member-avatar" src="assets/members/nanditha_br.png" alt="Rtn. Dr. Nanditha B R">
+          <div class="member-pill-info">
+            <div class="member-pill-top">
+              <span class="member-pill-name">Rtn. Dr. Nanditha B R</span>
+              <span class="member-pill-occupation">Dean (Academic Affairs) &amp; Professor</span>
+            </div>
+            <span class="member-pill-brief">Academic administrator &amp; Info Science Professor shaping engineering research &amp; curriculum.</span>
+          </div>
+        </div>
+
+        <div class="member-pill-card" data-member-id="8" tabindex="0" role="button" aria-label="Rtn. Prathima profile">
+          <img class="member-avatar" src="assets/members/prathima.jpg" alt="Rtn. Prathima">
+          <div class="member-pill-info">
+            <div class="member-pill-top">
+              <span class="member-pill-name">Rtn. Prathima</span>
+              <span class="member-pill-occupation">Software Engineer &amp; Entrepreneur</span>
+            </div>
+            <span class="member-pill-brief">Software engineering professional passionate about technology innovation &amp; social service.</span>
+          </div>
+        </div>
+
+        <div class="member-pill-card" data-member-id="9" tabindex="0" role="button" aria-label="Rtn. Rashma N. profile">
+          <img class="member-avatar" src="assets/members/rashma_n.jpg" alt="Rtn. Rashma N.">
+          <div class="member-pill-info">
+            <div class="member-pill-top">
+              <span class="member-pill-name">Rtn. Rashma N.</span>
+              <span class="member-pill-occupation">Founder, Agile Pro Clinic &amp; IT Leader</span>
+            </div>
+            <span class="member-pill-brief">IT leader with 18+ yrs experience guiding Agile transformations &amp; executive mentoring.</span>
+          </div>
+        </div>
+
+        <div class="member-pill-card" data-member-id="10" tabindex="0" role="button" aria-label="Rtn. Sheela H S profile">
+          <img class="member-avatar" src="assets/members/sheela_hs.jpg" alt="Rtn. Sheela H S">
+          <div class="member-pill-info">
+            <div class="member-pill-top">
+              <span class="member-pill-name">Rtn. Sheela H S</span>
+              <span class="member-pill-occupation">Yoga &amp; Wellness Advocate</span>
+            </div>
+            <span class="member-pill-brief">Former Rotary Anns President &amp; wellness advocate promoting community health outreach.</span>
+          </div>
+        </div>
+
+        <div class="member-pill-card" data-member-id="11" tabindex="0" role="button" aria-label="Rtn. Thanushree profile">
+          <img class="member-avatar" src="assets/members/thanushree.jpg" alt="Rtn. Thanushree">
+          <div class="member-pill-info">
+            <div class="member-pill-top">
+              <span class="member-pill-name">Rtn. Thanushree</span>
+              <span class="member-pill-occupation">Structural Engineer (M.Tech)</span>
+            </div>
+            <span class="member-pill-brief">Civil &amp; structural engineering expert with expertise in structural analysis &amp; design.</span>
+          </div>
+        </div>
+
+        <div class="member-pill-card" data-member-id="12" tabindex="0" role="button" aria-label="Rtn. Thanvii H M profile">
+          <img class="member-avatar" src="assets/members/thanvii_hm.jpg" alt="Rtn. Thanvii H M">
+          <div class="member-pill-info">
+            <div class="member-pill-top">
+              <span class="member-pill-name">Rtn. Thanvii H M</span>
+              <span class="member-pill-occupation">Business Executive &amp; Entrepreneur</span>
+            </div>
+            <span class="member-pill-brief">Dynamic business executive actively leading civic enterprise &amp; community service.</span>
+          </div>
+        </div>
+
+        <!-- DUPLICATE SET OF 12 MEMBERS FOR SEAMLESS INFINITE LOOP -->
+        <div class="member-pill-card" data-member-id="1" tabindex="-1" aria-hidden="true">
+          <img class="member-avatar" src="assets/members/asha_jayaram.jpg" alt="Rtn. Asha Jayaram">
+          <div class="member-pill-info">
+            <div class="member-pill-top">
+              <span class="member-pill-name">Rtn. Asha Jayaram</span>
+              <span class="member-pill-occupation">Retd. HOD &amp; Assoc. Prof (Chemistry)</span>
+            </div>
+            <span class="member-pill-brief">Academic leader with 30+ yrs in chemistry education, NSS &amp; institutional mentoring.</span>
+          </div>
+        </div>
+
+        <div class="member-pill-card" data-member-id="2" tabindex="-1" aria-hidden="true">
+          <img class="member-avatar" src="assets/members/dhavala_kc.jpg" alt="Rtn. Dhavala K C">
+          <div class="member-pill-info">
+            <div class="member-pill-top">
+              <span class="member-pill-name">Rtn. Dhavala K C</span>
+              <span class="member-pill-occupation">Info Science Engineer &amp; Artist</span>
+            </div>
+            <span class="member-pill-brief">Tech graduate &amp; creative entrepreneur specializing in traditional Tanjore art &amp; baking.</span>
+          </div>
+        </div>
+
+        <div class="member-pill-card" data-member-id="3" tabindex="-1" aria-hidden="true">
+          <img class="member-avatar" src="assets/members/madhu_kumar.jpg" alt="Rtn. Madhu Kumar">
+          <div class="member-pill-info">
+            <div class="member-pill-top">
+              <span class="member-pill-name">Rtn. Madhu Kumar</span>
+              <span class="member-pill-occupation">Director, BharatOne Services</span>
+            </div>
+            <span class="member-pill-brief">Entrepreneur with 10+ yrs leading digital citizen services &amp; e-governance in Karnataka.</span>
+          </div>
+        </div>
+
+        <div class="member-pill-card" data-member-id="4" tabindex="-1" aria-hidden="true">
+          <img class="member-avatar" src="assets/members/mohana_lakshmi.jpg" alt="Rtn. Dr. Mohana Lakshmi J">
+          <div class="member-pill-info">
+            <div class="member-pill-top">
+              <span class="member-pill-name">Rtn. Dr. Mohana Lakshmi J</span>
+              <span class="member-pill-occupation">Assoc. Prof, MCE Hassan &amp; Startup COO</span>
+            </div>
+            <span class="member-pill-brief">COO of ME-RIISE Foundation advancing engineering innovation &amp; tech startup incubation.</span>
+          </div>
+        </div>
+
+        <div class="member-pill-card" data-member-id="5" tabindex="-1" aria-hidden="true">
+          <img class="member-avatar" src="assets/members/muralidhara_hr.jpg" alt="Rtn. Er. Muralidhara H R">
+          <div class="member-pill-info">
+            <div class="member-pill-top">
+              <span class="member-pill-name">Rtn. Er. Muralidhara H R</span>
+              <span class="member-pill-occupation">Executive Engineer, Yettinahole Project</span>
+            </div>
+            <span class="member-pill-brief">Balekundri Awardee civil engineer leading drinking water &amp; infrastructure projects.</span>
+          </div>
+        </div>
+
+        <div class="member-pill-card" data-member-id="6" tabindex="-1" aria-hidden="true">
+          <img class="member-avatar" src="assets/members/nancy_paul.jpg" alt="Rtn. Dr. Nancy Paul">
+          <div class="member-pill-info">
+            <div class="member-pill-top">
+              <span class="member-pill-name">Rtn. Dr. Nancy Paul</span>
+              <span class="member-pill-occupation">Consultant Gynaecologist &amp; Surgeon</span>
+            </div>
+            <span class="member-pill-brief">Asst. Professor at HIMS Hassan &amp; fertility specialist dedicated to women's healthcare.</span>
+          </div>
+        </div>
+
+        <div class="member-pill-card" data-member-id="7" tabindex="-1" aria-hidden="true">
+          <img class="member-avatar" src="assets/members/nanditha_br.png" alt="Rtn. Dr. Nanditha B R">
+          <div class="member-pill-info">
+            <div class="member-pill-top">
+              <span class="member-pill-name">Rtn. Dr. Nanditha B R</span>
+              <span class="member-pill-occupation">Dean (Academic Affairs) &amp; Professor</span>
+            </div>
+            <span class="member-pill-brief">Academic administrator &amp; Info Science Professor shaping engineering research &amp; curriculum.</span>
+          </div>
+        </div>
+
+        <div class="member-pill-card" data-member-id="8" tabindex="-1" aria-hidden="true">
+          <img class="member-avatar" src="assets/members/prathima.jpg" alt="Rtn. Prathima">
+          <div class="member-pill-info">
+            <div class="member-pill-top">
+              <span class="member-pill-name">Rtn. Prathima</span>
+              <span class="member-pill-occupation">Software Engineer &amp; Entrepreneur</span>
+            </div>
+            <span class="member-pill-brief">Software engineering professional passionate about technology innovation &amp; social service.</span>
+          </div>
+        </div>
+
+        <div class="member-pill-card" data-member-id="9" tabindex="-1" aria-hidden="true">
+          <img class="member-avatar" src="assets/members/rashma_n.jpg" alt="Rtn. Rashma N.">
+          <div class="member-pill-info">
+            <div class="member-pill-top">
+              <span class="member-pill-name">Rtn. Rashma N.</span>
+              <span class="member-pill-occupation">Founder, Agile Pro Clinic &amp; IT Leader</span>
+            </div>
+            <span class="member-pill-brief">IT leader with 18+ yrs experience guiding Agile transformations &amp; executive mentoring.</span>
+          </div>
+        </div>
+
+        <div class="member-pill-card" data-member-id="10" tabindex="-1" aria-hidden="true">
+          <img class="member-avatar" src="assets/members/sheela_hs.jpg" alt="Rtn. Sheela H S">
+          <div class="member-pill-info">
+            <div class="member-pill-top">
+              <span class="member-pill-name">Rtn. Sheela H S</span>
+              <span class="member-pill-occupation">Yoga &amp; Wellness Advocate</span>
+            </div>
+            <span class="member-pill-brief">Former Rotary Anns President &amp; wellness advocate promoting community health outreach.</span>
+          </div>
+        </div>
+
+        <div class="member-pill-card" data-member-id="11" tabindex="-1" aria-hidden="true">
+          <img class="member-avatar" src="assets/members/thanushree.jpg" alt="Rtn. Thanushree">
+          <div class="member-pill-info">
+            <div class="member-pill-top">
+              <span class="member-pill-name">Rtn. Thanushree</span>
+              <span class="member-pill-occupation">Structural Engineer (M.Tech)</span>
+            </div>
+            <span class="member-pill-brief">Civil &amp; structural engineering expert with expertise in structural analysis &amp; design.</span>
+          </div>
+        </div>
+
+        <div class="member-pill-card" data-member-id="12" tabindex="-1" aria-hidden="true">
+          <img class="member-avatar" src="assets/members/thanvii_hm.jpg" alt="Rtn. Thanvii H M">
+          <div class="member-pill-info">
+            <div class="member-pill-top">
+              <span class="member-pill-name">Rtn. Thanvii H M</span>
+              <span class="member-pill-occupation">Business Executive &amp; Entrepreneur</span>
+            </div>
+            <span class="member-pill-brief">Dynamic business executive actively leading civic enterprise &amp; community service.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HERO SECTION -->
 <div class="hero">
   <div>
     <div class="hero-eyebrow">Club No. 15716 · RI District 3182 · Zone 9</div>
@@ -461,11 +325,11 @@
       </div>
     </div>
     <h1>Service above self, <em>right here</em> in Hassan.</h1>
-    <p>We're a community of professionals, academics, and entrepreneurs serving Hassan district — from blood donation camps to youth mentorship. This year, Team Aikyam carries that forward under the banner "Together · Serve · Inspire · Transform."</p>
+    <p>We're a community of professionals, academics, doctors, engineers, and entrepreneurs serving Hassan district — from blood donation camps to youth mentorship. This year, Team Aikyam carries that forward under the banner "Together · Serve · Inspire · Transform."</p>
     <p style="margin-top:14px; font-style:italic; color:var(--rotary-blue-dark); font-family:'Fraunces',serif; font-size:16px;">"We make a living by what we get, but we make a life by what we give."</p>
     <div class="hero-ctas">
-      <a class="btn-primary" href="#work">See Our Work</a>
-      <a class="btn-secondary" href="#involved">Get Involved</a>
+      <a class="btn-primary" href="work.html">Explore Our Work</a>
+      <a class="btn-secondary" href="about.html#involved">Get Involved</a>
     </div>
   </div>
   <div class="photo-block hero-photo">
@@ -486,12 +350,12 @@
   <div class="stat-strip-inner">
     <div><div class="num">50+</div><div class="label">Active Members</div></div>
     <div><div class="num">12</div><div class="label">New Members Inducted 2026–27</div></div>
-    <div><div class="num">12</div><div class="label">Service Initiatives Planned</div></div>
+    <div><div class="num">12</div><div class="label">Flagship Impact Projects</div></div>
     <div><div class="num">40+</div><div class="label">Years of Service</div></div>
   </div>
 </div>
 
-<!-- LEADERSHIP -->
+<!-- LEADERSHIP SECTION -->
 <section class="block" id="leadership">
   <div class="section-head" style="display:flex; align-items:center; gap:16px;">
     <img src="assets/team-aikyam-emblem.jpeg" alt="Team Aikyam" style="width:56px; height:56px; border-radius:50%; flex-shrink:0;">
@@ -544,7 +408,7 @@
   </div>
 
   <!-- LEADERSHIP COLLABORATORS & ANNS CLUB -->
-  <!-- <div style="margin-top:36px; display:grid; grid-template-columns: 1fr 1fr 1fr; gap:20px;">
+  <div style="margin-top:36px; display:grid; grid-template-columns: 1fr 1fr 1fr; gap:20px;">
     <div style="background:#f8fafc; padding:20px; border-radius:8px; border:1px solid var(--line);">
       <div style="font-size:12px; font-weight:700; text-transform:uppercase; color:var(--rotary-blue); margin-bottom:8px;">Outgoing Team (2025–26)</div>
       <p style="font-size:13.5px; color:var(--ink); font-weight:600; margin-bottom:4px;">Rtn. PHF Mahesh D R (President)</p>
@@ -563,483 +427,78 @@
       <p style="font-size:13px; color:var(--ink-soft);">Rtn. A. Manjunath (Assistant Governor)</p>
     </div>
   </div>
-</section> -->
+</section>
 
-<!-- INDUCTED NEW MEMBERS SHOWCASE (12 MEMBERS) -->
-<!-- <section class="block" id="members" style="background:#f8fafc; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+<!-- EXPLORE SUB-PAGES HUB SECTION -->
+<section class="block" style="background:#f8fafc; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
   <div class="section-head">
-    <div class="section-eyebrow">Welcome to the Rotary Family · Team Aikyam 2026–27</div>
-    <h2>12 Newly Inducted Members</h2>
-    <p>Distinguished leaders, academics, doctors, engineers, and entrepreneurs inducted into Rotary Club Hassan during the Installation Ceremony on July 9, 2026. Click any member card to view detailed professional &amp; family background.</p>
+    <div class="section-eyebrow">Explore Rotary Club Hassan</div>
+    <h2>Discover Our Portals &amp; Impact</h2>
+    <p>Select a section below to explore our new members, flagship service projects, installation calendar, photo gallery, or contact information.</p>
   </div>
-  <div class="work-grid">
-    <div class="work-card" data-member-id="1" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Rtn. Asha Jayaram profile">
-      <div class="photo-block">
-        <img src="assets/members/asha_jayaram.jpg" alt="Rtn. Asha Jayaram">
-      </div>
-      <div class="work-card-body">
-        <span class="work-tag">Chemistry &amp; Education</span>
-        <h3>Rtn. Asha Jayaram</h3>
-        <p>Retd. Associate Professor &amp; HOD of Chemistry, AV Kanthamma College, Hassan.</p>
-        <div class="card-footer-link"><span>View Full Profile</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </div>
-    <div class="work-card" data-member-id="2" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Rtn. Dhavala K C profile">
-      <div class="photo-block">
-        <img src="assets/members/dhavala_kc.jpg" alt="Rtn. Dhavala K C">
-      </div>
-      <div class="work-card-body">
-        <span class="work-tag">Information Science &amp; Arts</span>
-        <h3>Rtn. Dhavala K C</h3>
-        <p>Information Science Engineer, homemaker, Tanjore painting artist &amp; culinary enthusiast.</p>
-        <div class="card-footer-link"><span>View Full Profile</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </div>
-    <div class="work-card" data-member-id="3" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Rtn. Madhu Kumar profile">
-      <div class="photo-block">
-        <img src="assets/members/madhu_kumar.jpg" alt="Rtn. Madhu Kumar">
-      </div>
-      <div class="work-card-body">
-        <span class="work-tag">Business &amp; E-Governance</span>
-        <h3>Rtn. Madhu Kumar</h3>
-        <p>Director of BharatOne Services &amp; Affiliates, leading digital citizen services &amp; e-governance.</p>
-        <div class="card-footer-link"><span>View Full Profile</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </div>
-    <div class="work-card" data-member-id="4" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Rtn. Dr. Mohana Lakshmi J profile">
-      <div class="photo-block">
-        <img src="assets/members/mohana_lakshmi.jpg" alt="Rtn. Dr. Mohana Lakshmi J">
-      </div>
-      <div class="work-card-body">
-        <span class="work-tag">Engineering &amp; Innovation</span>
-        <h3>Rtn. Dr. Mohana Lakshmi J</h3>
-        <p>Assoc. Prof at MCE Hassan, COO ME-RIISE Foundation &amp; Startup Co-founder.</p>
-        <div class="card-footer-link"><span>View Full Profile</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </div>
-    <div class="work-card" data-member-id="5" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Rtn. Er. Muralidhara H R profile">
-      <div class="photo-block">
-        <img src="assets/members/muralidhara_hr.jpg" alt="Rtn. Er. Muralidhara H R">
-      </div>
-      <div class="work-card-body">
-        <span class="work-tag">Civil Engineering &amp; Infra</span>
-        <h3>Rtn. Er. Muralidhara H R</h3>
-        <p>Executive Engineer, Yettinahole Drinking Water Project; Balekundri Award Recipient.</p>
-        <div class="card-footer-link"><span>View Full Profile</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </div>
-    <div class="work-card" data-member-id="6" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Rtn. Dr. Nancy Paul profile">
-      <div class="photo-block">
-        <img src="assets/members/nancy_paul.jpg" alt="Rtn. Dr. Nancy Paul">
-      </div>
-      <div class="work-card-body">
-        <span class="work-tag">Medicine &amp; Women's Health</span>
-        <h3>Rtn. Dr. Nancy Paul</h3>
-        <p>Consultant Gynaecologist &amp; Laparoscopic Surgeon (HIMS &amp; CSI Redfern Hospital).</p>
-        <div class="card-footer-link"><span>View Full Profile</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </div>
-    <div class="work-card" data-member-id="7" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Rtn. Dr. Nanditha B R profile">
-      <div class="photo-block">
-        <img src="assets/members/nanditha_br.png" alt="Rtn. Dr. Nanditha B R">
-      </div>
-      <div class="work-card-body">
-        <span class="work-tag">Academic Leadership</span>
-        <h3>Rtn. Dr. Nanditha B R</h3>
-        <p>Dean (Academic Affairs) &amp; Professor, Dept. of Information Science &amp; Engineering.</p>
-        <div class="card-footer-link"><span>View Full Profile</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </div>
-    <div class="work-card" data-member-id="8" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Rtn. Prathima profile">
-      <div class="photo-block">
-        <img src="assets/members/prathima.jpg" alt="Rtn. Prathima">
-      </div>
-      <div class="work-card-body">
-        <span class="work-tag">Software &amp; Enterprise</span>
-        <h3>Rtn. Prathima</h3>
-        <p>Software engineering background &amp; entrepreneur passionate about community service.</p>
-        <div class="card-footer-link"><span>View Full Profile</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </div>
-    <div class="work-card" data-member-id="9" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Rtn. Rashma N. profile">
-      <div class="photo-block">
-        <img src="assets/members/rashma_n.jpg" alt="Rtn. Rashma N.">
-      </div>
-      <div class="work-card-body">
-        <span class="work-tag">IT &amp; Agile Leadership</span>
-        <h3>Rtn. Rashma N.</h3>
-        <p>IT Professional with 18+ yrs experience; Founder of Agile Pro Clinic &amp; Agile Coach.</p>
-        <div class="card-footer-link"><span>View Full Profile</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </div>
-    <div class="work-card" data-member-id="10" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Rtn. Sheela H S profile">
-      <div class="photo-block">
-        <img src="assets/members/sheela_hs.jpg" alt="Rtn. Sheela H S">
-      </div>
-      <div class="work-card-body">
-        <span class="work-tag">Yoga &amp; Wellness</span>
-        <h3>Rtn. Sheela H S</h3>
-        <p>Community leader, Yoga wellness advocate &amp; Past President of Rotary Anns Club.</p>
-        <div class="card-footer-link"><span>View Full Profile</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </div>
-    <div class="work-card" data-member-id="11" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Rtn. Thanushree profile">
-      <div class="photo-block">
-        <img src="assets/members/thanushree.jpg" alt="Rtn. Thanushree">
-      </div>
-      <div class="work-card-body">
-        <span class="work-tag">Structural Engineering</span>
-        <h3>Rtn. Thanushree</h3>
-        <p>Structural Engineer (M.Tech), ex-Assistant Professor at Dayananda Sagar College.</p>
-        <div class="card-footer-link"><span>View Full Profile</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </div>
-    <div class="work-card" data-member-id="12" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Rtn. Thanvii H M profile">
-      <div class="photo-block">
-        <img src="assets/members/thanvii_hm.jpg" alt="Rtn. Thanvii H M">
-      </div>
-      <div class="work-card-body">
-        <span class="work-tag">Business &amp; Commerce</span>
-        <h3>Rtn. Thanvii H M</h3>
-        <p>Business executive &amp; entrepreneur dedicated to community development initiatives.</p>
-        <div class="card-footer-link"><span>View Full Profile</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </div>
-  </div>
-</section> -->
 
-<!-- OUR WORK -->
-<section class="block" id="work">
-  <div class="section-head">
-    <div class="section-eyebrow">Team Aikyam · Rotary Year 2026–27</div>
-    <h2>Our planned initiatives this year</h2>
-    <p>Twelve focus areas guiding our service this Rotary year — spanning health, education, safety, and community development across Hassan.</p>
-  </div>
-  <div class="work-grid">
-    <div class="work-card" data-work-id="1" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Blood Donation Drives details">
-      <div class="photo-block">PHOTO: Blood donation drive</div>
-      <div class="work-card-body">
-        <span class="work-tag">Health</span>
-        <h3>Blood Donation Drives</h3>
-        <p>Voluntary blood donation camps held across the year for Hassan district hospitals.</p>
-        <div class="card-footer-link"><span>Explore Details &amp; Gallery</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+  <div class="explore-grid">
+    
+    <a href="members.html" class="explore-card">
+      <div>
+        <div class="explore-icon">👥</div>
+        <h3>12 Newly Inducted Members</h3>
+        <p>Explore full profiles, academic qualifications, and family details of our newly inducted leaders for Team Aikyam 2026–27.</p>
       </div>
-    </div>
-    <div class="work-card" data-work-id="2" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Eye & Organ Donation Awareness details">
-      <div class="photo-block">PHOTO: Eye/organ donation campaign</div>
-      <div class="work-card-body">
-        <span class="work-tag">Health</span>
-        <h3>Eye &amp; Organ Donation Awareness</h3>
-        <p>Awareness campaigns, marathons, and walkathons promoting eye and organ donation.</p>
-        <div class="card-footer-link"><span>Explore Details &amp; Gallery</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="explore-link">View New Members Page →</div>
+    </a>
+
+    <a href="work.html" class="explore-card">
+      <div>
+        <div class="explore-icon">📋</div>
+        <h3>Impact Created: Service in Action</h3>
+        <p>Discover our 12 flagship community projects spanning blood donation, Happy School initiatives, women's health camps, and infrastructure.</p>
       </div>
-    </div>
-    <div class="work-card" data-work-id="3" tabindex="0" role="button" aria-haspopup="dialog" aria-label="School Development Initiatives details">
-      <div class="photo-block">PHOTO: School development / Happy School</div>
-      <div class="work-card-body">
-        <span class="work-tag">Education</span>
-        <h3>School Development Initiatives</h3>
-        <p>Improving school premises and hygiene through our Happy School Initiative.</p>
-        <div class="card-footer-link"><span>Explore Details &amp; Gallery</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="explore-link">View Impact &amp; Projects Page →</div>
+    </a>
+
+    <a href="events.html" class="explore-card">
+      <div>
+        <div class="explore-icon">📅</div>
+        <h3>Programme &amp; Calendar</h3>
+        <p>Check out the minute-by-minute installation timeline, weekly Thursday meeting schedule, and upcoming service camps.</p>
       </div>
-    </div>
-    <div class="work-card" data-work-id="4" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Women's Health Awareness details">
-      <div class="photo-block">PHOTO: Women's health awareness session</div>
-      <div class="work-card-body">
-        <span class="work-tag">Health</span>
-        <h3>Women's Health Awareness</h3>
-        <p>Dedicated sessions and camps focused on women's health across the community.</p>
-        <div class="card-footer-link"><span>Explore Details &amp; Gallery</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="explore-link">View Programme Calendar →</div>
+    </a>
+
+    <a href="gallery.html" class="explore-card">
+      <div>
+        <div class="explore-icon">📷</div>
+        <h3>Photo Gallery</h3>
+        <p>Browse high-resolution event photos of the installation ceremony, leadership awards, and community service drives.</p>
       </div>
-    </div>
-    <div class="work-card" data-work-id="5" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Youth Skill Development details">
-      <div class="photo-block">PHOTO: Youth skill development workshop</div>
-      <div class="work-card-body">
-        <span class="work-tag">Youth</span>
-        <h3>Youth Skill Development</h3>
-        <p>Leadership and capacity-building programs designed for Hassan's youth.</p>
-        <div class="card-footer-link"><span>Explore Details &amp; Gallery</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="explore-link">View Photo Gallery →</div>
+    </a>
+
+    <a href="about.html" class="explore-card">
+      <div>
+        <div class="explore-icon">🏛️</div>
+        <h3>About Us &amp; Legacy</h3>
+        <p>Learn about our 40+ year legacy in Hassan district, Rotary International District 3182 Zone 9, and club leadership.</p>
       </div>
-    </div>
-    <div class="work-card" data-work-id="6" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Career Guidance & Scholarships details">
-      <div class="photo-block">PHOTO: Career counselling session</div>
-      <div class="work-card-body">
-        <span class="work-tag">Education</span>
-        <h3>Career Guidance &amp; Scholarships</h3>
-        <p>Counselling, mentorship, and scholarships for 10th and PUC students.</p>
-        <div class="card-footer-link"><span>Explore Details &amp; Gallery</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="explore-link">View About Us Page →</div>
+    </a>
+
+    <a href="about.html#involved" class="explore-card">
+      <div>
+        <div class="explore-icon">🤝</div>
+        <h3>Get Involved / Join</h3>
+        <p>Find out how to become a member, sponsor a health camp or school project, or sign up as a community volunteer.</p>
       </div>
-    </div>
-    <div class="work-card" data-work-id="7" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Startup & Entrepreneurship Awareness details">
-      <div class="photo-block">PHOTO: Startup/entrepreneurship session</div>
-      <div class="work-card-body">
-        <span class="work-tag">Enterprise</span>
-        <h3>Startup &amp; Entrepreneurship Awareness</h3>
-        <p>Sessions building innovation and startup culture among young entrepreneurs.</p>
-        <div class="card-footer-link"><span>Explore Details &amp; Gallery</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </div>
-    <div class="work-card" data-work-id="8" tabindex="0" role="button" aria-haspopup="dialog" aria-label="CPR & First Aid Training details">
-      <div class="photo-block">PHOTO: CPR / first aid training</div>
-      <div class="work-card-body">
-        <span class="work-tag">Health</span>
-        <h3>CPR &amp; First Aid Training</h3>
-        <p>Certified training programs run in partnership with the Indian Red Cross.</p>
-        <div class="card-footer-link"><span>Explore Details &amp; Gallery</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </div>
-    <div class="work-card" data-work-id="9" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Road Safety Campaign details">
-      <div class="photo-block">PHOTO: Road safety campaign</div>
-      <div class="work-card-body">
-        <span class="work-tag">Community</span>
-        <h3>Road Safety Campaign</h3>
-        <p>Educational programs and public campaigns promoting road safety in Hassan.</p>
-        <div class="card-footer-link"><span>Explore Details &amp; Gallery</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </div>
-    <div class="work-card" data-work-id="10" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Happy Village Project details">
-      <div class="photo-block">PHOTO: Happy Village project</div>
-      <div class="work-card-body">
-        <span class="work-tag">Community</span>
-        <h3>Happy Village Project</h3>
-        <p>Integrated development work supporting a village community end-to-end.</p>
-        <div class="card-footer-link"><span>Explore Details &amp; Gallery</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </div>
-    <div class="work-card" data-work-id="11" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Digital Literacy for School Children details">
-      <div class="photo-block">PHOTO: Digital literacy for school kids</div>
-      <div class="work-card-body">
-        <span class="work-tag">Education</span>
-        <h3>Digital Literacy for School Children</h3>
-        <p>Foundational digital skills programs for students across Hassan schools.</p>
-        <div class="card-footer-link"><span>Explore Details &amp; Gallery</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </div>
-    <div class="work-card" data-work-id="12" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Bus Shelter Project details">
-      <div class="photo-block">PHOTO: Bus shelter construction</div>
-      <div class="work-card-body">
-        <span class="work-tag">Infrastructure</span>
-        <h3>Bus Shelter Project</h3>
-        <p>Built with the support of Rtn. Ramesh Kothari, serving daily commuters in Hassan.</p>
-        <div class="card-footer-link"><span>Explore Details &amp; Gallery</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </div>
+      <div class="explore-link">View Get Involved Page →</div>
+    </a>
+
   </div>
 </section>
 
-<!-- GET INVOLVED -->
-<section class="block involved" id="involved">
-  <div class="section-head">
-    <div class="section-eyebrow">Join The Effort</div>
-    <h2>Three ways to get involved</h2>
-  </div>
-  <div class="involved-grid">
-    <div class="involved-card member">
-      <h3>Become a Member</h3>
-      <p>Join a network of Hassan professionals committed to hands-on community service and lifelong friendships.</p>
-      <a href="#">Learn about membership →</a>
-    </div>
-    <div class="involved-card donor">
-      <h3>Donate / Sponsor</h3>
-      <p>Fund a specific project — a health camp, a school kit drive, a water initiative — and see exactly where it goes.</p>
-      <a href="#">See donation options →</a>
-    </div>
-    <div class="involved-card public">
-      <h3>Volunteer for an Event</h3>
-      <p>No membership required — join us for a single event, camp, or drive as a community volunteer.</p>
-      <a href="#">View upcoming events →</a>
-    </div>
-  </div>
-</section>
-
-<!-- EVENTS / PROGRAMME SCHEDULE -->
-<section class="block" id="events">
-  <div class="section-head">
-    <div class="section-eyebrow">Team Aikyam Installation Ceremony · 9 July 2026</div>
-    <h2>Programme Schedule &amp; Timeline</h2>
-    <p>Official ceremony schedule held at Rotary Club House, Hassan, ushering in the 2026–27 Rotary Year under the banner "Together · Serve · Inspire · Transform".</p>
-  </div>
-  <div class="events-list">
-    <div class="event-row">
-      <div class="event-date"><div class="d">09</div><div class="m">Jul</div></div>
-      <div>
-        <h4>7:15 PM – 7:30 PM · Welcome Cultural Dance</h4>
-        <p>Performed by Dhruthi S Rao, Vismitha S, Deeksha C Y, and Banu Chidanand.</p>
-      </div>
-      <span class="work-tag" style="margin:0;">Cultural</span>
-    </div>
-    <div class="event-row">
-      <div class="event-date"><div class="d">09</div><div class="m">Jul</div></div>
-      <div>
-        <h4>7:30 PM – 7:47 PM · Invocation &amp; Welcome Address</h4>
-        <p>Invocation by Ann. Vani Nagendra; Welcome address by Outgoing President Rtn. PHF Mahesh D R.</p>
-      </div>
-      <span class="work-tag" style="margin:0;">Protocol</span>
-    </div>
-    <div class="event-row">
-      <div class="event-date"><div class="d">09</div><div class="m">Jul</div></div>
-      <div>
-        <h4>7:55 PM – 8:06 PM · President Installation &amp; Acceptance</h4>
-        <p>Introduction by Rtn. Dr. Mohanalakshmi J.; Installation &amp; Acceptance Address by Rtn. Dr. Geetha Kiran A.</p>
-      </div>
-      <span class="work-tag" style="margin:0; background:rgba(247,168,27,0.15); color:var(--rotary-gold-dark);">Key Highlight</span>
-    </div>
-    <div class="event-row">
-      <div class="event-date"><div class="d">09</div><div class="m">Jul</div></div>
-      <div>
-        <h4>8:15 PM – 8:30 PM · Induction of 12 New Members</h4>
-        <p>Induction ceremony welcoming 12 distinguished community leaders into the Rotary Family.</p>
-      </div>
-      <span class="work-tag" style="margin:0;">Induction</span>
-    </div>
-    <div class="event-row">
-      <div class="event-date"><div class="d">09</div><div class="m">Jul</div></div>
-      <div>
-        <h4>8:30 PM – 8:38 PM · Service Planning &amp; Ann's Club Installation</h4>
-        <p>12 Service Initiatives presentation by Secretary Sunitha Somashekar &amp; Ann's Club Officers installation.</p>
-      </div>
-      <span class="work-tag" style="margin:0;">Service</span>
-    </div>
-    <div class="event-row">
-      <div class="event-date"><div class="d">09</div><div class="m">Jul</div></div>
-      <div>
-        <h4>8:51 PM – 9:35 PM · Chief Guest Address, Bulletin Release &amp; Lucky Draw</h4>
-        <p>Address by Chief Guest Rtn. H. R. Keshav (PDG RID 3181), Bulletin release by AG Rtn. A Manjunath &amp; Vote of Thanks by Rtn. Dr. H. L. Somashekar.</p>
-      </div>
-      <span class="work-tag" style="margin:0;">Valedictory</span>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section class="block" id="gallery">
-  <div class="section-head">
-    <div class="section-eyebrow">In Action</div>
-    <h2>Gallery</h2>
-    <p>Visual records of Team Aikyam installation ceremony, health camps, and community projects in Hassan.</p>
-  </div>
-  <div class="gallery-grid">
-    <div class="photo-block">
-      <img src="assets/hero/anns_team_group.jpg" alt="Ann's Team & Office Bearers 2026-27">
-    </div>
-    <div class="photo-block">
-      <img src="assets/hero/president_family.jpg" alt="President Dr. Geetha Kiran A & Family">
-    </div>
-    <div class="photo-block">
-      <img src="assets/leadership/hr_keshav.jpg" alt="Chief Guest Rtn. H. R. Keshav">
-    </div>
-    <div class="photo-block">
-      <img src="assets/leadership/mahesh_dr.jpg" alt="Zonal Lieutenant Rtn. PHF Mahesh D R">
-    </div>
-    <div class="photo-block">
-      <img src="assets/leadership/a_manjunath.png" alt="Assistant Governor Rtn. A Manjunath">
-    </div>
-    <div class="photo-block">
-      <img src="assets/members/mohana_lakshmi.jpg" alt="Team Aikyam Leadership & Members">
-    </div>
-  </div>
-</section>
-
-<!-- VOICE / TESTIMONIAL -->
-<div class="voice">
-  <div class="voice-inner">
-    <div class="photo-block">
-      <img src="assets/leadership/geetha_kiran.jpg" alt="Rtn. Dr. Geetha Kiran A">
-    </div>
-    <blockquote>"We make a living by what we get, but we make a life by what we give."</blockquote>
-    <cite>— Rtn. Dr. Geetha Kiran A, Club President 2026–27</cite>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer id="about">
-  <div class="footer-inner">
-    <div>
-      <div class="logo" style="color:var(--cream-deep); margin-bottom:14px;">
-        <img class="logo-wheel" src="assets/rotary-logo.png" alt="Rotary">
-        <img class="logo-team" src="assets/team-aikyam-emblem.jpeg" alt="Team Aikyam">
-        Rotary Club Hassan
-      </div>
-      <p style="font-size:13.5px; color:#a39d8c; max-width:32ch;">Club No. 15716 · RI District 3182, Zone 9. Team Aikyam — Together · Serve · Inspire · Transform.</p>
-    </div>
-    <div>
-      <h4>Explore</h4>
-      <ul>
-        <li><a href="#work">Our Work</a></li>
-        <li><a href="#members">New Members</a></li>
-        <li><a href="#events">Programme</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Get Involved</h4>
-      <ul>
-        <li><a href="#involved">Join Us</a></li>
-        <li><a href="#involved">Donate</a></li>
-        <li><a href="#involved">Volunteer</a></li>
-      </ul>
-    </div>
-    <div id="contact">
-      <h4>Contact</h4>
-      <ul>
-        <li>Rotary Club House, Hassan, Karnataka</li>
-        <li><a href="mailto:info@rotaryhassan.org">info@rotaryhassan.org</a></li>
-        <li><a href="tel:+919845012345">+91 98450 12345</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">© 2026 Rotary Club Hassan · Club No. 15716 · RI District 3182, Zone 9</div>
-</footer>
-
-<!-- INTERACTIVE WORK MODAL (3/4 SCREEN POPUP) -->
-<div class="modal-backdrop" id="workModal" role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1">
-  <div class="modal-card">
-    <div class="modal-header-bar">
-      <div class="modal-header-info">
-        <span class="work-tag" id="modalTag">Health</span>
-        <span class="modal-date-badge" id="modalDate">📅 Year-round</span>
-      </div>
-      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
-    </div>
-    <div class="modal-scroll-content">
-      <div class="modal-grid">
-        <!-- LEFT COLUMN: DETAILS -->
-        <div>
-          <h2 class="modal-title" id="modalTitle">Initiative Title</h2>
-          <p class="modal-description" id="modalDescription">Detailed information about this initiative...</p>
-          
-          <div class="modal-section-title">Key Outcomes &amp; Impact</div>
-          <ul class="modal-outcomes-list" id="modalOutcomes">
-            <!-- Dynamic Outcomes -->
-          </ul>
-          
-          <div class="modal-partner-box" id="modalPartner">
-            <!-- Dynamic Partner -->
-          </div>
-        </div>
-        
-        <!-- RIGHT COLUMN: EVENT PHOTOS & GALLERY -->
-        <div>
-          <div class="modal-section-title">Event Photos &amp; Visual Records</div>
-          <div class="gallery-preview-container">
-            <div class="gallery-main-featured" id="modalFeaturedPhoto">
-              <div class="main-photo-title" id="featuredTitle">Main Photo Placeholder</div>
-              <div class="main-photo-desc" id="featuredDesc">Click any thumbnail below to preview photo record</div>
-            </div>
-            <div style="font-size:12px; color:var(--ink-soft); font-weight:600; margin-top:4px;">Event Photo Gallery (Click thumbnail to preview):</div>
-            <div class="gallery-thumbs-grid" id="modalThumbsGrid">
-              <!-- Dynamic Thumbs -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- INTERACTIVE MEMBER MODAL (3/4 SCREEN POPUP) -->
+<!-- MEMBER DETAIL MODAL (FOR ROLLING BANNER CLICKS) -->
 <div class="modal-backdrop" id="memberModal" role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1">
-  <div class="modal-card" style="height:auto; max-height:85vh;">
+  <div class="modal-card">
     <div class="modal-header-bar">
       <div class="modal-header-info">
         <span class="work-tag" id="memberTag">Tag</span>
@@ -1049,25 +508,16 @@
     </div>
     <div class="modal-scroll-content">
       <div class="modal-grid">
-        <!-- LEFT COLUMN: PROFESSIONAL BACKGROUND -->
         <div>
           <h2 class="modal-title" id="memberName">Member Name</h2>
           <p style="font-size:14px; font-weight:700; color:var(--rotary-blue-dark); margin-bottom:14px;" id="memberClassification"></p>
-          
-          <div class="modal-section-title">Profession &amp; Academic Background</div>
+          <div class="modal-section-title">Professional Background &amp; Profile</div>
           <p class="modal-description" id="memberProfession">Profession details...</p>
         </div>
-        
-        <!-- RIGHT COLUMN: FAMILY & PERSONAL DETAILS -->
         <div>
           <div class="modal-section-title">Family &amp; Personal Record</div>
           <div class="modal-partner-box" id="memberFamily" style="margin-bottom:16px; background:#f8fafc; line-height:1.6;">
-            <!-- Family details -->
-          </div>
-          
-          <div style="padding:16px; background:rgba(23,69,143,0.05); border-radius:8px; border:1px solid rgba(23,69,143,0.15);">
-            <div style="font-size:12px; font-weight:700; text-transform:uppercase; color:var(--rotary-blue); margin-bottom:6px;">Rotary Affiliation</div>
-            <div style="font-size:13.5px; color:var(--ink); font-weight:500;">Inducted Member · Team Aikyam 2026–27<br>Rotary Club Hassan · RI District 3182, Zone 9</div>
+            Family info...
           </div>
         </div>
       </div>
@@ -1075,226 +525,50 @@
   </div>
 </div>
 
-<script>
-  const workInitiativesData = {
-    "1": {
-      title: "Blood Donation Drives",
-      tag: "Health",
-      date: "📅 Year-Round (Quarterly Camps)",
-      description: "Rotary Club Hassan organizes voluntary blood donation camps across Hassan district in close collaboration with Hassan District Hospital and the Indian Red Cross Blood Bank. These regular drives ensure emergency blood reserves remain fully stocked for trauma victims, major surgeries, and thalassemic patients across the region.",
-      outcomes: [
-        "Collected 500+ units of voluntary blood annually across district camps",
-        "Engaged 150+ first-time and repeat blood donors in each drive",
-        "Established a 24/7 emergency blood donor registry for rare blood types"
-      ],
-      partner: "Hassan District Hospital & Indian Red Cross Society",
-      photos: [
-        { title: "Registration Desk", desc: "Volunteers screening & registering blood donors" },
-        { title: "Hemoglobin Screening", desc: "Medical staff testing donor vital indicators" },
-        { title: "Active Donation Camp", desc: "Rotary members and community donors at work" },
-        { title: "Donor Certificates", desc: "Distribution of recognition certificates & refreshments" }
-      ]
-    },
-    "2": {
-      title: "Eye & Organ Donation Awareness",
-      tag: "Health",
-      date: "📅 August – October 2026",
-      description: "A district-wide public pledge and education campaign aimed at breaking taboos surrounding post-mortem corneal and organ donation. Through walkathons, educational seminars in colleges, and public pledge booths, we inspire citizens of Hassan to give the ultimate gift of sight and life.",
-      outcomes: [
-        "Registered 300+ formal organ & corneal donation pledges",
-        "Over 1,200 participants joined the Hassan Awareness Walkathon",
-        "Distributed 5,000+ Kannada & English awareness brochures"
-      ],
-      partner: "Minto Ophthalmic Hospital & Karnataka Transplant Authority",
-      photos: [
-        { title: "Walkathon Flag-Off", desc: "Community leaders launching the awareness walkathon" },
-        { title: "Pledge Desk", desc: "Citizens filling out organ donor registration cards" },
-        { title: "Doctor Seminar", desc: "Ophthalmologists addressing myth-busting sessions" },
-        { title: "Pledge Handover", desc: "Awarding official donor cards to participant volunteers" }
-      ]
-    },
-    "3": {
-      title: "School Development Initiatives (Happy School)",
-      tag: "Education",
-      date: "📅 July – November 2026",
-      description: "Transforming rural government primary and high schools into vibrant 'Happy Schools'. Rotary Club Hassan upgrades sanitation infrastructure, installs safe UV water purification units, supplies dual student desks, repaints classrooms with educational murals, and donates sports kits.",
-      outcomes: [
-        "Upgraded 4 rural government schools in Hassan taluk",
-        "850+ students provided with clean drinking water and sturdy dual desks",
-        "Recorded a 20% increase in student attendance post-renovation"
-      ],
-      partner: "Department of Public Instruction, Hassan & RI District 3182",
-      photos: [
-        { title: "Water Unit Setup", desc: "Inauguration of clean drinking water purification station" },
-        { title: "Dual Desks Handover", desc: "New classroom seating arrangement for students" },
-        { title: "Educational Murals", desc: "Colorful wall painting & blackboard restoration" },
-        { title: "Sports Kit Distribution", desc: "Distributing football, cricket & volleyball equipment" }
-      ]
-    },
-    "4": {
-      title: "Women's Health Awareness & Hygiene",
-      tag: "Health",
-      date: "📅 September 2026 – March 2027",
-      description: "Comprehensive health and wellness programs focused on rural women and adolescent schoolgirls. We conduct hemoglobin screening for anemia, host expert talks on cervical & breast cancer prevention, and distribute eco-friendly sanitary hygiene kits.",
-      outcomes: [
-        "Screened 600+ women for anemia and vital health parameters",
-        "Distributed 1,000+ personal hygiene kits to rural schoolgirls",
-        "Hosted interactive health Q&A sessions led by lady gynecologists"
-      ],
-      partner: "Hassan Women & Child Welfare Dept & Local PHCs",
-      photos: [
-        { title: "Health Awareness Talk", desc: "Lady doctor addressing rural women's wellness" },
-        { title: "Anemia Screening", desc: "Blood hemoglobin testing station for adolescent girls" },
-        { title: "Hygiene Kit Handover", desc: "Distributing sustainable personal care packages" },
-        { title: "Group Q&A Circle", desc: "Open session resolving women's healthcare queries" }
-      ]
-    },
-    "5": {
-      title: "Youth Skill Development & Leadership",
-      tag: "Youth",
-      date: "📅 October 2026 – February 2027",
-      description: "Empowering college students and youth across Hassan with practical career skills. Workshops cover public speaking, soft skills, resume building, interview techniques, and digital literacy to boost employability for graduating youth.",
-      outcomes: [
-        "Trained 400+ youth across 3 local degree & polytechnic colleges",
-        "Conducted 12 interactive hands-on skill development modules",
-        "Provided mock HR interview practice for 45 final-year students"
-      ],
-      partner: "ME-RIISE Foundation & Hassan Youth Leadership Forum",
-      photos: [
-        { title: "Public Speaking Lab", desc: "Students practicing stage confidence & speeches" },
-        { title: "Resume Clinic", desc: "One-on-one resume review with corporate mentors" },
-        { title: "Teamwork Challenge", desc: "Interactive group problem-solving exercises" },
-        { title: "Valedictory Ceremony", desc: "Certificate distribution to successful youth trainees" }
-      ]
-    },
-    "6": {
-      title: "Career Guidance & Student Scholarships",
-      tag: "Education",
-      date: "📅 June – August 2026",
-      description: "Helping 10th standard and PUC (12th) students make informed decisions regarding higher education and vocational career paths. Rotary Club Hassan provides expert counselling sessions and awards merit-cum-means financial aid to deserving underprivileged students.",
-      outcomes: [
-        "Counselled 1,500+ students from government and aided schools",
-        "Awarded ₹2,50,000 in educational scholarships to 35 bright scholars",
-        "Distributed comprehensive higher education career guide booklets"
-      ],
-      partner: "Rotary Club Hassan Educational Trust & Local Academics",
-      photos: [
-        { title: "Career Seminar", desc: "Counselor addressing students on course selections" },
-        { title: "One-on-One Guidance", desc: "Personalized academic counselling for 12th graders" },
-        { title: "Scholarship Handover", desc: "Awarding financial aid cheques to merit students" },
-        { title: "Scholar Group Photo", desc: "Rotary office bearers with scholarship recipients" }
-      ]
-    },
-    "7": {
-      title: "Startup & Entrepreneurship Awareness",
-      tag: "Enterprise",
-      date: "📅 November 2026 – January 2027",
-      description: "Fostering an innovation and startup culture among Hassan's young entrepreneurs and engineering students. We host startup bootcamps, business plan pitch sessions, and founder panels in partnership with ME-RIISE Foundation.",
-      outcomes: [
-        "Engaged 200+ aspiring student entrepreneurs & tech innovators",
-        "15 promising startup ideas evaluated by industry mentors",
-        "3 top student startup projects selected for incubator seed support"
-      ],
-      partner: "ME-RIISE Foundation Incubator & Hassan Industrial Association",
-      photos: [
-        { title: "Startup Pitch Stage", desc: "Student teams presenting business prototypes" },
-        { title: "Mentor Feedback", desc: "Incubator experts reviewing student business plans" },
-        { title: "Founder Panel", desc: "Successful Hassan entrepreneurs sharing insights" },
-        { title: "Award & Seed Support", desc: "Recognizing top 3 startup concepts with grants" }
-      ]
-    },
-    "8": {
-      title: "CPR & Emergency First Aid Training",
-      tag: "Health",
-      date: "📅 Bi-Monthly Workshops",
-      description: "Certified life-saving emergency training conducted by medical professionals and Red Cross trainers. Participants receive hands-on training on CPR, airway management, burn treatment, and first aid response for cardiac and trauma emergencies.",
-      outcomes: [
-        "Certified 450+ first responders (teachers, police, drivers, citizens)",
-        "Organized 8 practical hands-on mannequin training sessions",
-        "Donated first aid kits to 10 local schools and public centers"
-      ],
-      partner: "Indian Red Cross Society & Emergency Care Physicians",
-      photos: [
-        { title: "Mannequin CPR Practice", desc: "Trainees practicing chest compressions" },
-        { title: "First Aid & Bandaging", desc: "Demonstration of wound dressing & fracture care" },
-        { title: "Trainer Instruction", desc: "Red Cross instructor explaining emergency steps" },
-        { title: "Responder Certification", desc: "Handing out certified First Responder cards" }
-      ]
-    },
-    "9": {
-      title: "Hassan Road Safety Campaign",
-      tag: "Community",
-      date: "📅 January – February 2027",
-      description: "A high-visibility public awareness campaign held in coordination with Hassan Traffic Police to prevent road accidents. Includes helmet awareness rallies, reflector sticker application on rural tractors & bullock carts, and street plays.",
-      outcomes: [
-        "Affixed 2,000+ reflector stickers on rural tractors & slow vehicles",
-        "Distributed 500 safety helmets to two-wheeler riders",
-        "Handed out 10,000 traffic rule safety leaflets at major city junctions"
-      ],
-      partner: "Hassan Traffic Police Department & RTO Hassan",
-      photos: [
-        { title: "Helmet Rally", desc: "Rotary members & traffic police leading bike rally" },
-        { title: "Reflector Application", desc: "Affixing warning reflectors on rural bullock carts" },
-        { title: "Junction Awareness", desc: "Volunteers distributing safety leaflets at signals" },
-        { title: "Street Play Drama", desc: "College students performing road safety drama" }
-      ]
-    },
-    "10": {
-      title: "Integrated Happy Village Project",
-      tag: "Community",
-      date: "📅 Year-Long Initiative (2026–27)",
-      description: "Holistic development of an adopted rural village in Hassan district. Rotary Club Hassan installs solar street lights, establishes a community reading room, sets up rainwater harvesting structures, and hosts soil testing camps for local farmers.",
-      outcomes: [
-        "Installed 25 solar streetlights illuminating key village roads",
-        "Established a village library with 500+ books & regional newspapers",
-        "Conducted free soil health testing for 150 farming families"
-      ],
-      partner: "Gram Panchayat & Krishi Vigyan Kendra Hassan",
-      photos: [
-        { title: "Solar Light Installation", desc: "Erecting solar streetlights along main village road" },
-        { title: "Library Inauguration", desc: "Opening community reading room for villagers" },
-        { title: "Farmers Soil Camp", desc: "Agricultural scientists testing soil samples" },
-        { title: "Gram Sabha Gathering", desc: "Community meeting with village elders & panchayat" }
-      ]
-    },
-    "11": {
-      title: "Digital Literacy for School Children",
-      tag: "Education",
-      date: "📅 August 2026 – March 2027",
-      description: "Bridging the digital divide for rural students across Hassan district. We set up computer learning stations in rural government schools, donate refurbished laptops, and conduct weekly practical lessons on computer basics, typing, and internet safety.",
-      outcomes: [
-        "Equipped 5 computer learning corners in rural schools",
-        "600+ students gaining weekly hands-on computer access",
-        "Trained 15 local teachers to sustain the digital learning program"
-      ],
-      partner: "Rotary District Digital India Taskforce & IT Donors",
-      photos: [
-        { title: "Computer Corner Opening", desc: "Ribbon cutting for school computer setup" },
-        { title: "Hands-on Student Session", desc: "Children practicing typing & educational tools" },
-        { title: "Cyber Safety Class", desc: "Tutor teaching safe internet usage guidelines" },
-        { title: "Digital Quiz Contest", desc: "Awarding prizes to digital literacy contest winners" }
-      ]
-    },
-    "12": {
-      title: "Public Bus Shelter Project",
-      tag: "Infrastructure",
-      date: "📅 Completed & Inaugurated",
-      description: "A permanent public infrastructure project executed with the generous sponsorship of Rtn. Ramesh Kothari. Designed with covered seating, rain protection, and solar lighting to serve daily commuters, elders, and school children waiting for public transit.",
-      outcomes: [
-        "Constructed 2 durable, weather-protected public bus shelters",
-        "Serves 500+ daily commuters, students, and senior citizens",
-        "Equipped with solar-powered overhead lighting for night security"
-      ],
-      partner: "Rtn. Ramesh Kothari & Hassan City Municipal Council",
-      photos: [
-        { title: "Shelter Construction", desc: "Civil foundation & structure assembly phase" },
-        { title: "Inauguration Ceremony", desc: "Rotary leaders & municipal officials ribbon cutting" },
-        { title: "Public Commuters", desc: "Local citizens utilizing comfortable shelter seating" },
-        { title: "Night Solar Lighting", desc: "Illuminated shelter view during evening hours" }
-      ]
-    }
-  };
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="logo" style="color:var(--cream-deep); margin-bottom:14px;">
+        <img class="logo-wheel" src="assets/rotary-logo.png" alt="Rotary">
+        <img class="logo-team" src="assets/team-aikyam-emblem.jpeg" alt="Team Aikyam">
+        Rotary Club Hassan
+      </a>
+      <p style="font-size:13.5px; color:#a39d8c; max-width:32ch;">Club No. 15716 · RI District 3182, Zone 9. Team Aikyam — Together · Serve · Inspire · Transform.</p>
+    </div>
+    <div>
+      <h4>Explore Pages</h4>
+      <ul>
+        <li><a href="index.html">Home Page</a></li>
+        <li><a href="members.html">New Members</a></li>
+        <li><a href="work.html">Our Work</a></li>
+        <li><a href="events.html">Programme</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Get Involved</h4>
+      <ul>
+        <li><a href="about.html#involved">Join Us</a></li>
+        <li><a href="about.html#involved">Donate</a></li>
+        <li><a href="about.html#involved">Volunteer</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Club House &amp; Contact</h4>
+      <p style="font-size:13.5px; color:#cbd5e1; line-height:1.6;">
+        Rotary Club House, Near B.M. Road, Hassan, Karnataka.<br>
+        <strong>Meetings:</strong> Every Thursday, 7:30 PM.<br>
+        <strong>Email:</strong> info@rotaryhassan.org
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    Rotary Club Hassan · Team Aikyam 2026–27 · Service Above Self
+  </div>
+</footer>
 
+<script>
   const membersData = {
     "1": {
       name: "Rtn. Asha Jayaram",
@@ -1382,73 +656,6 @@
     }
   };
 
-  // WORK MODAL ELEMENTS & CONTROLLER
-  const modalBackdrop = document.getElementById('workModal');
-  const modalCloseBtn = document.getElementById('modalCloseBtn');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalTag = document.getElementById('modalTag');
-  const modalDate = document.getElementById('modalDate');
-  const modalDescription = document.getElementById('modalDescription');
-  const modalOutcomes = document.getElementById('modalOutcomes');
-  const modalPartner = document.getElementById('modalPartner');
-  const featuredTitle = document.getElementById('featuredTitle');
-  const featuredDesc = document.getElementById('featuredDesc');
-  const modalThumbsGrid = document.getElementById('modalThumbsGrid');
-
-  function openWorkModal(id) {
-    const data = workInitiativesData[id];
-    if (!data) return;
-
-    modalTitle.textContent = data.title;
-    modalTag.textContent = data.tag;
-    modalDate.textContent = data.date;
-    modalDescription.textContent = data.description;
-
-    modalOutcomes.innerHTML = data.outcomes.map(item => `
-      <li>
-        <span style="color:var(--rotary-gold-dark); font-weight:bold;">✓</span>
-        <span>${item}</span>
-      </li>
-    `).join('');
-
-    modalPartner.innerHTML = `<strong>Collaborative Partner:</strong> ${data.partner}`;
-
-    if (data.photos && data.photos.length > 0) {
-      setFeaturedPhoto(data.photos[0]);
-      modalThumbsGrid.innerHTML = data.photos.map((photo, idx) => `
-        <div class="thumb-block ${idx === 0 ? 'active' : ''}" data-idx="${idx}">
-          ${photo.title}
-        </div>
-      `).join('');
-
-      const thumbElements = modalThumbsGrid.querySelectorAll('.thumb-block');
-      thumbElements.forEach(thumb => {
-        thumb.addEventListener('click', () => {
-          thumbElements.forEach(t => t.classList.remove('active'));
-          thumb.classList.add('active');
-          const idx = parseInt(thumb.dataset.idx, 10);
-          setFeaturedPhoto(data.photos[idx]);
-        });
-      });
-    }
-
-    modalBackdrop.classList.add('active');
-    modalBackdrop.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function setFeaturedPhoto(photo) {
-    featuredTitle.textContent = `PHOTO RECORD: ${photo.title}`;
-    featuredDesc.textContent = photo.desc;
-  }
-
-  function closeWorkModal() {
-    modalBackdrop.classList.remove('active');
-    modalBackdrop.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
-
-  // MEMBER MODAL ELEMENTS & CONTROLLER
   const memberModalBackdrop = document.getElementById('memberModal');
   const memberModalCloseBtn = document.getElementById('memberModalCloseBtn');
   const memberName = document.getElementById('memberName');
@@ -1478,19 +685,6 @@
     document.body.style.overflow = '';
   }
 
-  // Attach event listeners to Work Cards & Member Cards
-  document.querySelectorAll('[data-work-id]').forEach(card => {
-    card.addEventListener('click', () => {
-      openWorkModal(card.dataset.workId);
-    });
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        openWorkModal(card.dataset.workId);
-      }
-    });
-  });
-
   document.querySelectorAll('[data-member-id]').forEach(card => {
     card.addEventListener('click', () => {
       openMemberModal(card.dataset.memberId);
@@ -1503,21 +697,14 @@
     });
   });
 
-  // Modal close listeners
-  modalCloseBtn.addEventListener('click', closeWorkModal);
   memberModalCloseBtn.addEventListener('click', closeMemberModal);
-
-  modalBackdrop.addEventListener('click', (e) => {
-    if (e.target === modalBackdrop) closeWorkModal();
-  });
   memberModalBackdrop.addEventListener('click', (e) => {
     if (e.target === memberModalBackdrop) closeMemberModal();
   });
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      if (modalBackdrop.classList.contains('active')) closeWorkModal();
-      if (memberModalBackdrop.classList.contains('active')) closeMemberModal();
+    if (e.key === 'Escape' && memberModalBackdrop.classList.contains('active')) {
+      closeMemberModal();
     }
   });
 </script>
