@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Month Events — Rotary Club Hassan</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="wf-note">WIREFRAME — <strong>Our Work: Events of the Month</strong></div>
+
+<!-- HEADER -->
+<header>
+  <div class="nav-wrap">
+    <a href="index.html" class="logo">
+      <img class="logo-wheel" src="assets/rotary-logo.png" alt="Rotary">
+      <img class="logo-team" src="assets/team-aikyam-emblem.jpeg" alt="Team Aikyam">
+      Rotary Club Hassan
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="leadership.html">Leadership</a></li>
+        <li><a href="work.html" class="active">Our Work</a></li>
+        <li><a href="members.html">New Members</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+    <a class="btn-join" href="about.html#involved">Join / Donate</a>
+  </div>
+</header>
+
+<!-- BACK TO THE MONTH CALENDAR -->
+<div class="back-bar">
+  <a class="back-link" href="work.html">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Back to all months
+  </a>
+</div>
+
+<!-- PAGE HERO (filled from the month data) -->
+<section class="page-hero" id="monthHero" hidden>
+  <div class="page-hero-inner">
+    <div class="page-hero-eyebrow" id="monthEyebrow">Month 01 · Rotary Year 2026–27</div>
+    <h1 id="monthHeading">July 2026</h1>
+    <p id="monthSummary">Events of the month.</p>
+    <div class="month-hero-meta" id="monthMeta"></div>
+  </div>
+</section>
+
+<!-- EVENTS OF THE MONTH -->
+<section class="block">
+  <div class="work-grid" id="monthEventsGrid">
+    <!-- Rendered from assets/js/site-data.js -->
+  </div>
+
+  <!-- Shown when ?m= is missing or unrecognised -->
+  <div class="month-empty" id="monthEmpty" hidden>
+    <h2>Pick a month to see its events</h2>
+    <p>We couldn't find that month in the 2026–27 Rotary calendar. Choose one below, or go back to the full calendar.</p>
+    <div class="month-empty-links" id="monthEmptyLinks"></div>
+    <a class="btn-primary" href="work.html">Back to all months</a>
+  </div>
+
+  <!-- PREVIOUS / NEXT MONTH -->
+  <div class="month-pager" id="monthPager" hidden>
+    <a class="month-pager-link" id="prevMonthLink" href="#">
+      <span class="month-pager-dir">← Previous month</span>
+      <span class="month-pager-name">June</span>
+    </a>
+    <a class="btn-secondary" href="work.html">All 12 months</a>
+    <a class="month-pager-link align-right" id="nextMonthLink" href="#">
+      <span class="month-pager-dir">Next month →</span>
+      <span class="month-pager-name">August</span>
+    </a>
+  </div>
+</section>
+
+<!-- EVENT DETAIL MODAL -->
+<div class="modal-backdrop" id="workModal" role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1">
+  <div class="modal-card">
+    <div class="modal-header-bar">
+      <div class="modal-header-info">
+        <span class="work-tag" id="modalTag">Health</span>
+        <span class="modal-date-badge" id="modalDate">Target: Q3 2026</span>
+      </div>
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+    </div>
+    <div class="modal-scroll-content">
+      <div class="modal-grid">
+        <div>
+          <h2 class="modal-title" id="modalTitle">Initiative Title</h2>
+          <p class="modal-description" id="modalDescription">Description details go here...</p>
+
+          <div class="modal-section-title">Key Impact &amp; Achievements</div>
+          <ul class="modal-outcomes-list" id="modalOutcomes">
+            <!-- Populated dynamically -->
+          </ul>
+
+          <div class="modal-partner-box" id="modalPartner">
+            <strong>Collaborative Partner:</strong> Partner Info
+          </div>
+        </div>
+        <div>
+          <div class="modal-section-title">Project Gallery Preview</div>
+          <div class="gallery-preview-container">
+            <div class="gallery-main-featured" id="mainFeaturedPhoto">
+              <img class="featured-img" id="featuredImage" src="" alt="">
+              <div class="featured-caption">
+                <div class="main-photo-title" id="featuredTitle">Featured Project View</div>
+                <div class="main-photo-desc" id="featuredDesc">Rotary initiative in action</div>
+              </div>
+            </div>
+            <div class="gallery-thumbs-grid" id="modalThumbsGrid">
+              <!-- Thumbnails populated dynamically -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="logo" style="color:var(--cream-deep); margin-bottom:14px;">
+        <img class="logo-wheel" src="assets/rotary-logo.png" alt="Rotary">
+        <img class="logo-team" src="assets/team-aikyam-emblem.jpeg" alt="Team Aikyam">
+        Rotary Club Hassan
+      </a>
+      <p style="font-size:13.5px; color:#a39d8c; max-width:32ch;">Club No. 15716 · RI District 3182, Zone 9. Team Aikyam — Together · Serve · Inspire · Transform.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="index.html">Home Page</a></li>
+        <li><a href="leadership.html">Leadership</a></li>
+        <li><a href="work.html">Our Work</a></li>
+        <li><a href="members.html">New Members</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About &amp; History</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Get Involved</h4>
+      <ul>
+        <li><a href="about.html#involved">Join Us</a></li>
+        <li><a href="about.html#involved">Donate</a></li>
+        <li><a href="about.html#involved">Volunteer</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Club House &amp; Contact</h4>
+      <p style="font-size:13.5px; color:#cbd5e1; line-height:1.6;">
+        Rotary Suvarna Bhavan, Kuvempu Nagar, Hassan, Karnataka.<br>
+        <strong>Meetings:</strong> Every Thursday, 7:30 PM.<br>
+        <strong>Email:</strong> info@rotaryhassan.org
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    Rotary Club Hassan · Team Aikyam 2026–27 · Service Above Self
+  </div>
+</footer>
+
+<script src="assets/js/site-data.js"></script>
+<script src="assets/js/event-modal.js"></script>
+<script>
+  const arrowSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+
+  const monthKey = new URLSearchParams(window.location.search).get('m');
+  const month = SiteData.getMonth(monthKey);
+
+  const grid = document.getElementById('monthEventsGrid');
+  const empty = document.getElementById('monthEmpty');
+  const hero = document.getElementById('monthHero');
+  const pager = document.getElementById('monthPager');
+
+  if (!month) {
+    /* No month, or an unknown one — offer the calendar rather than a dead page. */
+    grid.hidden = true;
+    empty.hidden = false;
+    document.getElementById('monthEmptyLinks').innerHTML = MONTHS.map(m =>
+      `<a href="month.html?m=${m.key}">${m.label} ${m.year}</a>`
+    ).join('');
+  } else {
+    const events = SiteData.monthEvents(month.key);
+    const isDone = month.status === 'completed';
+    const noun = events.length === 1 ? 'event' : 'events';
+
+    document.title = `${month.label} ${month.year} — Our Work | Rotary Club Hassan`;
+
+    hero.hidden = false;
+    document.getElementById('monthEyebrow').textContent =
+      `Month ${month.num} of the Rotary Year 2026–27`;
+    document.getElementById('monthHeading').textContent = `${month.label} ${month.year}`;
+    document.getElementById('monthSummary').textContent = isDone
+      ? `The completed record of ${month.label} ${month.year} — ${events.length} ${noun} conducted by the club. Select any event to see the full report and photographs.`
+      : `${events.length} ${noun} planned for ${month.label} ${month.year}. Select an event to see what the club intends to deliver.`;
+    document.getElementById('monthMeta').innerHTML = `
+      <span class="month-status-chip ${month.status}">${isDone ? 'Completed' : 'Planned'}</span>
+      <span class="month-count-chip">${events.length} ${noun}</span>
+    `;
+
+    grid.innerHTML = events.map((ev, i) => {
+      const id = month.events[i];
+      const media = ev.image
+        ? `<div class="photo-block"><img src="${ev.image}" alt="${ev.alt || ev.title}"></div>`
+        : `<div class="photo-block">${ev.placeholder || ev.title}</div>`;
+      return `
+        <div class="work-card" data-work-id="${id}" tabindex="0" role="button" aria-haspopup="dialog">
+          ${media}
+          <div class="work-card-body">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; gap:10px;">
+              <span class="work-tag">${ev.tag}</span>
+              <span class="card-date-badge">${ev.dateBadge}</span>
+            </div>
+            <h3>${ev.cardTitle || ev.title}</h3>
+            <p>${ev.blurb}</p>
+            <div class="card-footer-link"><span>Explore Project Details</span> ${arrowSvg}</div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    const { prev, next } = SiteData.neighbours(month.key);
+    const prevLink = document.getElementById('prevMonthLink');
+    const nextLink = document.getElementById('nextMonthLink');
+    prevLink.href = `month.html?m=${prev.key}`;
+    prevLink.querySelector('.month-pager-name').textContent = `${prev.label} ${prev.year}`;
+    nextLink.href = `month.html?m=${next.key}`;
+    nextLink.querySelector('.month-pager-name').textContent = `${next.label} ${next.year}`;
+    pager.hidden = false;
+
+    EventModal.init();
+    EventModal.bindCards(grid);
+  }
+</script>
+
+</body>
+</html>
